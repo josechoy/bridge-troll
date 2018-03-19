@@ -7,7 +7,6 @@ const geo = require('./geo');
 const map = require('./map');
 const distance = require('./distance');
 const theme = require('./theme');
-
 const Bridge = require('./bridge');
 const bridges = {};
 

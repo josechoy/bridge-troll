@@ -6,7 +6,7 @@ const svgMarker = require('./svg-marker');
 const tileUrl_light =
   'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
 const tileUrl_dark =
-  'https://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png';
+  'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png';
 
 let mode;
 

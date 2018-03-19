@@ -2,7 +2,6 @@
 
 const log = require('../log');
 const theme = require('../theme');
-
 const leaflet = require('leaflet');
 const EventEmitter = require('events').EventEmitter;
 
