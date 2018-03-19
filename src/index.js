@@ -7,6 +7,7 @@ const geo = require('./geo');
 const map = require('./map');
 const svgMarker = require('./svg-marker');
 const distance = require('./distance');
+const theme = require('./theme');
 
 const Bridge = require('./bridge');
 const bridges = {};
@@ -39,7 +40,7 @@ map.on('update', bounds => {
       bridge.lat,
       bridge.lng,
       bridge.title,
-      svgMarker.locked,
+      theme.getLockedMarker(),
       onClick
     );
   });
@@ -70,7 +71,7 @@ geo.once('update', (lat, lng) => {
       // to have some kind of animation or other UI indication.
       if (!(bridge.marker && bridge.marker.isUnlocked)) {
         log.info('Unlocking bridge', bridge);
-        bridge.marker.setIcon(svgMarker.unlocked);
+        bridge.marker.setIcon(theme.getUnlockedMarker());
         bridge.marker.isUnlocked = true;
       }
     });

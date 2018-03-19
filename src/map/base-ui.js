@@ -2,11 +2,11 @@
 
 const log = require('../log');
 const svgMarker = require('../svg-marker');
+const theme = require('../theme');
 
 const leaflet = require('leaflet');
 const EventEmitter = require('events').EventEmitter;
 
-const tileUrl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
 const attribution =
   '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
@@ -23,6 +23,9 @@ class BaseUI extends EventEmitter {
   }
 
   init(lat, lng) {
+    theme.setMode(lat, lng);
+    let tileUrl = theme.getTile();
+
     // http://leafletjs.com/reference-1.3.0.html#map
     let map = (this.map = leaflet.map('map', this.options));
     leaflet.tileLayer(tileUrl, { attribution }).addTo(map);
@@ -37,7 +40,7 @@ class BaseUI extends EventEmitter {
     this.currentLocationMarker = leaflet
       .marker([lat, lng], {
         title: 'Current Location',
-        icon: svgMarker.location
+        icon: theme.getLocationMarker()
       })
       .addTo(map);
 
