@@ -5,7 +5,6 @@ require('../styles/styles.css');
 const log = require('./log');
 const geo = require('./geo');
 const map = require('./map');
-const svgMarker = require('./svg-marker');
 const distance = require('./distance');
 const theme = require('./theme');
 

@@ -1,7 +1,6 @@
 'use strict';
 
 const log = require('../log');
-const svgMarker = require('../svg-marker');
 const theme = require('../theme');
 
 const leaflet = require('leaflet');
